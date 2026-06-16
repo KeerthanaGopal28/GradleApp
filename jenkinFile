@@ -1,0 +1,39 @@
+pipeline{
+  agent any
+  tools{
+    gradle 'gradle'
+    jdk 'JDK'
+  }
+  stages{
+    stage('Checkout'){
+      steps{
+        git branch:'main',url:'https://github.com/KeerthanaGopal28/GradleApp.git'
+      }
+    }
+    stage('Build'){
+      steps{
+        sh 'gradle build'
+      }
+    }
+    stage('Test'){
+       steps{
+         sh 'gradle test'
+       }
+    }
+    stage('Run Application'){
+      steps{
+         sh 'gradle run'
+      }
+    }
+  }
+  post{
+    success{
+      echo:"succefulll build"
+    }
+    failure {
+      echo:"fail"
+    }
+  }
+}
+      
+  
