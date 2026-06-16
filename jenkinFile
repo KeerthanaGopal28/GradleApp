@@ -28,10 +28,10 @@ pipeline{
   }
   post{
     success{
-      echo:"succefulll build"
+      echo "succefulll build"
     }
     failure {
-      echo:"fail"
+      echo "fail"
     }
   }
 }
